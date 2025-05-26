@@ -170,6 +170,13 @@ vim.o.confirm = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
+
+--------- CUSTOM KEYMAPS ----------------
+
+vim.keymap.set('n', '-', '<cmd>Oil<CR>')
+
+-----------------------------------------
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
