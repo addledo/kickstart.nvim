@@ -4,8 +4,6 @@
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
 ========         ||                    ||   | === |          ========
 ========         ||   KICKSTART.NVIM   ||   |-----|          ========
 ========         ||                    ||   | === |          ========
@@ -243,16 +241,28 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
+  {
+    'numToStr/Comment.nvim', -- Comment plugin, includes useful operations like toggling comments
+    opts = {
+      toggler = {
+        line = '<C-/>',
+      },
+      opleader = {
+        line = '<C-/>', -- enables visual mode toggling
+      },
+    },
+  },
+
   -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
-  --
+
+  {
+    'stevearc/oil.nvim', -- File explorer
+    opts = {},
+  },
+
   {
     'lervag/vimtex',
     lazy = false, -- we don't want to lazy load VimTeX
-    -- tag = "v2.15", -- uncomment to pin to a specific release
     init = function()
       vim.g.vimtex_view_method = 'zathura'
     end,
